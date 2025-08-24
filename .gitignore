@@ -1,0 +1,6 @@
+# project specific
+.env
+poker_host_key
+
+# Poker-over-SSH source
+Poker-over-SSH/**

@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  poker:
+    build: .
+    container_name: poker-over-ssh
+    restart: unless-stopped
+    ports:
+      - "22224:22222"
+    # Load environment from local .env and keep PYTHONUNBUFFERED
+    env_file:
+      - .env
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./data:/opt/poker/data
+      # Persist host key file so clients won't see a new host key every start
+      - ./poker_host_key:/opt/poker/poker_host_key:rw
+      # Mount local .env into the container (read-only) so the app can read it
+      - ./.env:/opt/poker/.env:ro
+    tty: true
