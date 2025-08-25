@@ -23,7 +23,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: qincai-rui/poker-over-ssh
+  IMAGE_NAME: poker-ssh/poker-over-ssh
 
 jobs:
   build:
