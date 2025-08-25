@@ -37,6 +37,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Checkout Poker-over-SSH source
+        uses: actions/checkout@v4
+        with:
+          repository: poker-ssh/Poker-over-SSH
+          path: Poker-over-SSH
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+
       # Setup QEMU for multi-architecture builds
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
